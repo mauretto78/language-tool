@@ -3,6 +3,7 @@
 namespace Matecat\LanguageTools\Step\Japanese;
 
 use Matecat\LanguageTools\Step\StepInterface;
+use Matecat\LanguageTools\Utils\Strings;
 
 class AddSpaces implements StepInterface
 {
@@ -25,8 +26,8 @@ class AddSpaces implements StepInterface
         ];
 
         foreach ($addSpacesMap as $key => $value) {
-            $string = str_replace($value, trim($value), $string);
-            preg_match('/\\'.$key.'/', $string, $match);
+            $string = str_replace($value, Strings::trim($value), $string);
+            preg_match('/'.$key.'/ui', $string, $match);
 
             if(isset($match[0])){
                 $string = str_replace($key, $value, $string);

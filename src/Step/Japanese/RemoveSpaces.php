@@ -30,6 +30,10 @@ class RemoveSpaces implements StepInterface
         // No spaces before and/or after placeholders.
         $string = $this->removeSpacesAfterOrBeforePlaceholders($string);
 
+        // For quotation marks, use (「」) in Japanese.
+        // There should be no space between the quotation marks and the enclosed word or phrase.
+        $string = $this->removeSpacesInsideTheQuotationMarks($string);
+
         return $string;
     }
 
@@ -63,11 +67,30 @@ class RemoveSpaces implements StepInterface
      */
     private function removeSpacesAfterOrBeforePlaceholders($string)
     {
-        // No spaces before and/or after placeholders.
-        preg_match('/\\%{(.*?)\\}/', $string, $match);
+        preg_match_all('/\\%{(.*?)\\}/ui', $string, $matches);
 
-        if(isset($match[0])){
-            $string = str_replace([' '.$match[0], $match[0].' ', ' '.$match[0].' '], $match[0], $string);
+        foreach ($matches[0] as $index => $match){
+            if(isset($matches[1][$index])){
+                $string = str_replace([' '.$match, $match.' ', ' '.$match.' '], $match, $string);
+            }
+        }
+
+        return $string;
+    }
+
+    /**
+     * @param string $string
+     *
+     * @return string
+     */
+    private function removeSpacesInsideTheQuotationMarks($string)
+    {
+        preg_match_all('/「(.*?)」/ui', $string, $matches);
+
+        foreach ($matches[0] as $index => $match){
+            if(isset($matches[1][$index])){
+                $string = str_replace($match, '「'.Strings::trim($matches[1][$index]).'」', $string);
+            }
         }
 
         return $string;

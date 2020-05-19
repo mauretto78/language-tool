@@ -3,7 +3,6 @@
 namespace Matecat\LanguageTools;
 
 use Matecat\LanguageTools\Step\StepInterface;
-use Symfony\Component\Yaml\Yaml;
 
 class Pipeline
 {
