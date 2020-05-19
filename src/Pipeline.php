@@ -19,7 +19,7 @@ class Pipeline
      */
     public function __construct( $languageIsoCode )
     {
-        $config = Yaml::parseFile(__DIR__.'/../config/languages.yaml');
+        $config = include __DIR__.'/../config/languages.php';
         $languages = $config['languages'];
 
         if (in_array($languageIsoCode, array_keys($languages))) {
