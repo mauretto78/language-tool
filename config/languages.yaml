@@ -1,0 +1,6 @@
+languages:
+  ja-JP:
+    name: 'Japanese'
+    steps:
+      - 'RemoveSpaces'
+      - 'AddSpaces'
