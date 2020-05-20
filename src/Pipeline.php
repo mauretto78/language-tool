@@ -7,9 +7,14 @@ use Matecat\LanguageTools\Step\StepInterface;
 class Pipeline
 {
     /**
-     * @var string
+     * @var array
      */
     private $language;
+
+    /**
+     * @var array
+     */
+    private $config;
 
     /**
      * Pipeline constructor.
@@ -18,12 +23,21 @@ class Pipeline
      */
     public function __construct( $languageIsoCode )
     {
-        $config = include __DIR__.'/../config/languages.php';
-        $languages = $config['languages'];
+        $this->config = include __DIR__.'/../config/languages.php';
 
-        if (in_array($languageIsoCode, array_keys($languages))) {
-            $this->language = $languages[$languageIsoCode];
+        if ($this->isLanguageSupported($languageIsoCode)) {
+            $this->language = $this->config['languages'][$languageIsoCode];
         }
+    }
+
+    /**
+     * @param string $languageIsoCode
+     *
+     * @return bool
+     */
+    public function isLanguageSupported( $languageIsoCode)
+    {
+        return in_array($languageIsoCode, array_keys($this->config['languages']));
     }
 
     /**

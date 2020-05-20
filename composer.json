@@ -27,6 +27,7 @@
     "php": ">=5.6"
   },
   "require-dev": {
+    "symfony/console": "^3.4.17 || ^4.1.6",
     "phpunit/phpunit": "^8.2",
     "phpstan/phpstan": "^0.11.12",
     "friendsofphp/php-cs-fixer": "^2.15"
