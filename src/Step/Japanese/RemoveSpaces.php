@@ -45,12 +45,12 @@ class RemoveSpaces implements StepInterface
     private function removeSpacesAfterOrBeforeCommasPeriods( $string)
     {
          $removeSpacesFrom = [
-                '。 ',
-                '、 ',
-                '? ',
-                '! ',
-                ' （',
-                '） ',
+            '。 ',
+            '、 ',
+            '? ',
+            '! ',
+            ' （',
+            '） ',
         ];
 
         foreach ($removeSpacesFrom as $value) {
@@ -67,7 +67,7 @@ class RemoveSpaces implements StepInterface
      */
     private function removeSpacesAfterOrBeforePlaceholders($string)
     {
-        preg_match_all('/\\%{(.*?)\\}/ui', $string, $matches);
+        preg_match_all('/%\{(.*?)\}/ui', $string, $matches);
 
         foreach ($matches[0] as $index => $match){
             if(isset($matches[1][$index])){
