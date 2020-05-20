@@ -19,8 +19,13 @@ $pipeline = new Pipeline("ja-JP");
 // 商号は「株式会社」等を省略せず記載してください（例：株式会社XXX）。
 $correct = $pipeline->process($wrong); 
 ```
-
 In case of non-supported language, the Pipeline will return the original string.
+
+## Commands
+
+If you have an application which uses [Symfony Console](https://github.com/symfony/console), you have some commands available:
+
+*  ```mlt:process```    Process a string.
 
 ## Support
 

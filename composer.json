@@ -1,12 +1,12 @@
 {
-  "name": "matecat/language-tool",
+  "name": "matecat/language-tools",
   "type": "library",
   "description": "Language Tools",
-  "keywords": ["langauge", "matecat", "php"],
-  "homepage": "https://github.com/language-tool",
+  "keywords": ["langauge tools", "matecat", "php"],
+  "homepage": "https://github.com/mauretto78/language-tools",
   "license": "MIT",
   "support": {
-    "issues": "https://github.com/mauretto78/language-tool/issues"
+    "issues": "https://github.com/mauretto78/language-tools/issues"
   },
   "authors": [
     {
