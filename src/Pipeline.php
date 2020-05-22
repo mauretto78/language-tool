@@ -3,6 +3,7 @@
 namespace Matecat\LanguageTools;
 
 use Matecat\LanguageTools\Step\StepInterface;
+use Matecat\LanguageTools\Utils\Strings;
 
 class Pipeline
 {
@@ -52,6 +53,8 @@ class Pipeline
         }
 
         $return = $original;
+        $return = Strings::toUtf8($return);
+
         $namespace = 'Matecat\\LanguageTools\\Step\\' . $this->language['name'] . '\\';
 
         foreach ($this->language['steps'] as $step){

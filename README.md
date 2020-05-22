@@ -4,7 +4,8 @@ This library can be used to apply the correct language styling to a string.
 
 ## Supported languages
 
-- ja-JP
+- ja-JP (Japanese)
+- zh-TW (Traditional Chinese)
 
 ## Examples
 

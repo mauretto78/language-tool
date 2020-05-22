@@ -22,5 +22,12 @@ return [
                 "AddSpaces",
             ],
         ],
+        "zh-TW" => [
+            "name" => "TraditionalChinese",
+            "steps" => [
+                "RemoveSpaces",
+                "AddSpaces",
+            ],
+        ],
     ],
 ];
