@@ -5,6 +5,16 @@ namespace Matecat\LanguageTools\Utils;
 class Strings
 {
     /**
+     * @param $string
+     *
+     * @return false|string
+     */
+    public static function getLastChar($string)
+    {
+        return substr($string, -1);
+    }
+
+    /**
      * @param string $string
      *
      * @return string
